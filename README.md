@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My App
 
-## Getting Started
+Welcome to My App! This project is a modern web application built with Next.js, TypeScript, and React. It includes a custom toast notification system inspired by the `react-hot-toast` library.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: A powerful React framework for building server-side rendered and statically generated web applications.
+- **TypeScript**: A statically typed superset of JavaScript that enhances code quality and developer productivity.
+- **Custom Toast Notifications**: A custom toast notification system inspired by `react-hot-toast`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation
 
-## Learn More
+To get started with this project, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```sh
+    git clone <your-repo-url>
+    cd my-app
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**:
 
-## Deploy on Vercel
+    ```sh
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Run the development server**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    ```sh
+    npm run dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Usage
+
+### Custom Toast Notifications
+
+The project includes a custom toast notification system. You can use it as follows:
+
+1. **Import the [`toast`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Frex%2Fmy-app%2Fhooks%2Fuse-toast.ts%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A2%2C%22character%22%3A25%7D%7D%5D%2C%22ef72f378-3dcb-4923-b708-d6a088e9e657%22%5D "Go to definition") function**:
+
+    ```typescript
+    import { toast } from "@/hooks/use-toast";
+    ```
+
+2. **Use the [`toast`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Frex%2Fmy-app%2Fhooks%2Fuse-toast.ts%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A2%2C%22character%22%3A25%7D%7D%5D%2C%22ef72f378-3dcb-4923-b708-d6a088e9e657%22%5D "Go to definition") function to show notifications**:
+
+    ```typescript
+    toast({
+      title: "Thanks for signing up!",
+      description: "We'll keep you updated on our launch.",
+    });
+    ```
+
+### Example Component
+
+Here is an example of how to use the custom toast notifications in a component:
+
+```typescript
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
+
+export function LandingPageComponent() {
+  const [email, setEmail] = useState("");
+
+  const handleClick = () => {
+    toast({
+      title: "Thanks for signing up!",
+      description: "We'll keep you updated on our launch.",
+    });
+  };
+
+  return (
+    <div>
+      <h2>Get in Touch</h2>
+      <p>Have questions or suggestions? We'd love to hear from you.</p>
+      <Button onClick={handleClick}>Show Toast</Button>
+    </div>
+  );
+}
